@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public GameObject borderParent;
     public float maxSpeed = 5f;
     public GameObject boosterFlame;
+    public InputAction moveForward;
+    public InputAction lookPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
         restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
         restartButton.style.display = DisplayStyle.None;
         restartButton.clicked += ReloadScene;
+        moveForward.Enable();
+        lookPosition.Enable();
     }
 
     // Score Related Code
@@ -40,10 +44,10 @@ public class PlayerController : MonoBehaviour
     // Moving Player Code
     void MovePlayer()
     {
-        if (Mouse.current.leftButton.isPressed)
+        if (moveForward.IsPressed())
         {
             // Calculate mouse direction
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(lookPosition.ReadValue<Vector2>());
             Vector2 direction = (mousePos - transform.position).normalized;
 
             // Move player in direction of the mouse
@@ -55,11 +59,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (moveForward.WasPressedThisFrame())
         {
             boosterFlame.SetActive(true);
         }
-        else if (Mouse.current.leftButton.wasReleasedThisFrame)
+        else if (moveForward.WasReleasedThisFrame())
         {
             boosterFlame.SetActive(false);
         }
