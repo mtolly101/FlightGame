@@ -73,7 +73,8 @@ To start the game click "Play". After you get to the starting screen you are pla
 **Known Issues**: There are no bugs specific to this extension.
 
 ## Credits
-- Audio tracks from [Unity 2D Beginner Game: Sprite Flight](https://learn.unity.com/course/2d-beginner-game-sprite-flight/tutorial/optional-bonus-features?version=6.0) 
+- Audio tracks from [Unity 2D Beginner Game: Sprite Flight](https://learn.unity.com/course/2d-beginner-game-sprite-flight/tutorial/optional-bonus-features?version=6.0)
+- ChatGPT for the thumbnail image
 
 ## Reflection
 **Total Points Claimed**: [Base: 80% + Extensions: 29% = 109%]
